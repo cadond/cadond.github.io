@@ -124,8 +124,6 @@
     text-align: center;
     ;"></p>
 
-    Cadon Duong
-
 
     <div class="cookie-bar" id="cookieBar">
         <p>This website uses cookies to improve user experience. By clicking "AGREE", you consent to my use of your cookies.</p>
@@ -208,6 +206,39 @@
     location.reload(); // reload the page after clearing
   }
 </script>
+
+
+
+<!-- Inventory -->
+<button onclick="inventoryPage()" id="inventoryButton">Inventory</button>
+
+<style>
+  #inventoryButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease;
+  }
+
+  #inventoryButton:hover {
+    background-color: darkgreen;
+  }
+</style>
+
+<script>
+  function inventoryPage() {
+   window.location.href = "inventory.html"
+  }
+</script>
+
 
 </body>
 
