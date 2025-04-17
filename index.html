@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
     <style>
         body {
@@ -8,6 +10,8 @@
         }
     </style>
 </head>
+
+
 <body>
     <style>
                 button {
@@ -28,10 +32,60 @@
     display: inline-block;
     margin: 10px;
   }
+
+      .cookie-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      border-top: 2px solid #ccc;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+
+    .cookie-bar p {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .cookie-buttons button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .agree-button {
+      background-color: #5c2d91;
+      color: white;
+    }
+
+    .preference-button {
+      background-color: transparent;
+      color: #5c2d91;
+      border: 2px solid #5c2d91;
+    }
+
+    .cookie-bar.hide {
+      display: none;
+    }
     </style>
 
-    <img src="C:/Users/cadon/OneDrive/Documents/GitHub/cadond.github.io/Dog_Breeds.jpg" alt="">
 
+
+    <img src="C:/Users/cadon/OneDrive/Documents/GitHub/cadond.github.io/Dog_Breeds.jpg" alt="">
     <a href="personal_info.html">
         <button>Personal Information</button>
         </a>
@@ -71,5 +125,25 @@
     ;"></p>
 
     Cadon Duong
+
+    <div class="cookie-bar" id="cookieBar">
+        <p>This website uses cookies to improve user experience. By clicking "AGREE", you consent to my use of your cookies.</p>
+        <div class="cookie-buttons">
+          <a href = "cookie_preference.html">
+            Cookie Preference
+          </a>
+          <button class="agree-Button" onclick="hideCookieBar()">AGREE</button>
+        </div>
+      </div>
+
+      <script>
+        function hideCookieBar() {
+          document.getElementById("cookieBar").classList.add("hide");
+        }
+      </script>
+
 </body>
+
+
+
 </html>
