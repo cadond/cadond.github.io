@@ -136,11 +136,78 @@
           <button class="agree-Button" onclick="hideCookieBar()">AGREE</button>
         </div>
       </div>
-      <script>
-        function hideCookieBar() {
-          document.getElementById("cookieBar").classList.add("hide");
-        }
-      </script>
+
+      
+
+<script>
+    const cookieBar = document.getElementById("cookieBar");
+    const agreed = localStorage.getItem("cookieConsent");
+    const chosenCookie = localStorage.getItem("selectedCookie");
+  
+    const message = document.createElement("p");
+      message.style.textAlign = "center";
+      message.style.marginTop = "40px";
+      message.style.fontSize = "18px";
+
+    if(agreed) {
+        cookieBar.style.display = "none";
+        if (chosenCookie) {
+        message.textContent = "🍪 You selected: " + chosenCookie;
+      } else {
+        message.textContent = "No cookie selected.";
+      }
+
+      document.body.appendChild(message);
+    }
+    
+    function hideCookieBar() {
+      localStorage.setItem("cookieConsent", "true");
+      if (cookieBar) cookieBar.style.display = "none";
+
+  
+      if (chosenCookie) {
+        message.textContent = "🍪 You selected: " + chosenCookie;
+      } else {
+        message.textContent = "No cookie selected.";
+      }
+  
+      document.body.appendChild(message);
+    }
+  
+
+  </script>
+  
+      
+<!-- Reset Button -->
+<button onclick="resetSite()" id="resetBtn">Reset</button>
+
+<style>
+  #resetBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease;
+  }
+
+  #resetBtn:hover {
+    background-color: darkred;
+  }
+</style>
+
+<script>
+  function resetSite() {
+    localStorage.clear();
+    location.reload(); // reload the page after clearing
+  }
+</script>
 
 </body>
 
