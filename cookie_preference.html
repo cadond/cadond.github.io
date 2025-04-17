@@ -1,12 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <Title> Choose a cookie!</Title>
-    </head>
 
-    <body>
-        <h1>
-            choose a cookie
-        </h1>
-    </body>
+
+<head>
+  <title>Choose a Cookie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h1 {
+      color: purple;
+    }
+
+    .cookies {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .cookies img {
+      width: 300px;
+      border: 4px solid transparent;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .cookies img:hover {
+      transform: scale(1.05);
+    }
+
+    .cookies img.selected {
+      border-color: yellow;
+      box-shadow: 0 0 10px yellow;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .select {
+      background-color: purple;
+      color: white;
+    }
+
+    .cancel {
+      background-color: lightgray;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose a Cookie</h1>
+
+  <div class="cookies">
+    <img src="images/cookie_chocolate.png" img alt = " Chocolate Chip Cookie" onclick="pickCookie(this)">
+    <img src="images/cookie_oatmeal.png" img alt = " Oatmeal Cookie"onclick="pickCookie(this)">
+    <img src="images/cookie_peanut_butter.png" img alt = " Peanut Butter Cookie" onclick="pickCookie(this)">
+  </div>
+
+  <div class="buttons">
+    <button class="select" onclick="selectCookie()">Select</button>
+    <button class="cancel" onclick="cancelCookie()">Cancel</button>
+  </div>
+
+  <script>
+    let chosen = null;
+
+    function pickCookie(cookie) {
+      document.querySelectorAll('.cookies img').forEach(img => {
+        img.classList.remove('selected');
+      });
+
+      cookie.classList.add('selected');
+      chosen = cookie;
+    }
+
+    function selectCookie() {
+      if (chosen) {
+        localStorage.setItem("selectedCookie", chosen.alt); 
+        window.location.href = "index.html";
+      } else {
+        alert("Please choose a cookie first!");
+      }
+    }
+
+    function cancelCookie() {
+      document.querySelectorAll('.cookies img').forEach(img => {
+        img.classList.remove('selected');
+      });
+      chosen = null;
+    }
+  </script>
+
+</body>
 </html>
